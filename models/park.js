@@ -26,4 +26,31 @@ Park.prototype.addDinosaurToCollection = function (dinosaur) {
 	this.collectionOfDinosaurs.push(dinosaur);
 }
 
+Park.prototype.removeDinosaurFromCollection = function (dinosaur) {
+	let index = this.collectionOfDinosaurs.indexOf(dinosaur);
+	this.collectionOfDinosaurs.splice(index, 1);
+}
+
+Park.prototype.findMostPopularDinosaur = function () {
+	let mostPopular;
+	let highest = 0;
+	for (let dino of this.collectionOfDinosaurs) {
+		if (dino.guestsAttractedPerDay > highest ) {
+			highest = dino.guestsAttractedPerDay;
+			mostPopular = dino;
+		}
+	}
+	return mostPopular;
+}
+
+Park.prototype.findAllDinosaursOfSpecies = function (species) {
+	let dinoList = [];
+	for (let dino of this.collectionOfDinosaurs) {
+		if (dino.species === species) {
+			dinoList.push(dino);
+		}
+	}
+	return dinoList;
+}
+
 module.exports = Park;
