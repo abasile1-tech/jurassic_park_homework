@@ -1,0 +1,22 @@
+{
+  "name": "jurassic_park_homework",
+  "version": "1.0.0",
+  "description": "- Be able to use the fundamental JavaScript language features and data types\r - Be able to create an application using multiple interacting objects",
+  "main": "app.js",
+  "scripts": {
+    "test": "mocha specs"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/abasile1-tech/jurassic_park_homework.git"
+  },
+  "author": "John Basile",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/abasile1-tech/jurassic_park_homework/issues"
+  },
+  "homepage": "https://github.com/abasile1-tech/jurassic_park_homework#readme",
+  "devDependencies": {
+    "mocha": "^5.1.1"
+  }
+}
