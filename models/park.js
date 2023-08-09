@@ -16,6 +16,8 @@ Calculate the total number of visitors per year
 Calculate the total revenue from ticket sales for one year
 */
 
+const numDaysPerYear = 365.25;
+
 const Park = function (name, ticketPrice, collectionOfDinosaurs) {
 	this.name = name;
 	this.ticketPrice = ticketPrice;
@@ -51,6 +53,22 @@ Park.prototype.findAllDinosaursOfSpecies = function (species) {
 		}
 	}
 	return dinoList;
+}
+
+Park.prototype.calculateTotalNumVisitorsPerDay = function () {
+	let numVisits = 0;
+	for (let dino of this.collectionOfDinosaurs) {
+		numVisits += dino.guestsAttractedPerDay;
+	}
+	return numVisits;
+}
+
+Park.prototype.calculateTotalNumVisitorsPerYear = function () {
+	return numDaysPerYear * this.calculateTotalNumVisitorsPerDay();
+}
+
+Park.prototype.calculateTotalRevenueForOneYear = function () {
+	return this.ticketPrice * this.calculateTotalNumVisitorsPerYear();
 }
 
 module.exports = Park;
