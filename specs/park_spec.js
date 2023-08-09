@@ -3,17 +3,36 @@ const Park = require('../models/park.js');
 const Dinosaur = require('../models/dinosaur.js');
 
 describe('Park', function() {
-	this.beforeEach(function () {
+	let dinosaur1;
+	let dinosaur2;
+	let park1;
 
+	this.beforeEach(function () {
+		dinosaur1 = new Dinosaur('t-rex', 'carnivore', 50);
+		dinosaur2 = new Dinosaur('triceratops', "herbivore", 20);
+		park1 = new Park('Isla Nublar', 300, [dinosaur1]);
 	});
 
-	it('should have a name');
+	it('should have a name', function () {
+		const actual = park1.name;
+		assert.strictEqual(actual, 'Isla Nublar');
+	});
 
-	it('should have a ticket price');
+	it('should have a ticket price', function () {
+		const actual = park1.ticketPrice;
+		assert.strictEqual(actual, 300);
+	});
 
-	it('should have a collection of dinosaurs');
+	it('should have a collection of dinosaurs', function () {
+		const actual = park1.collectionOfDinosaurs;
+		assert.deepStrictEqual(actual, [dinosaur1]);
+	});
 
-	it('should be able to add a dinosaur to its collection');
+	it('should be able to add a dinosaur to its collection', function () {
+		park1.addDinosaurToCollection(dinosaur2);
+		const actual = park1.collectionOfDinosaurs;
+		assert.deepStrictEqual(actual, [dinosaur1, dinosaur2]);
+	});
 
 	it('should be able to remove a dinosaur from its collection');
 
